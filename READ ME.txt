@@ -1,0 +1,7 @@
+Akun administrator
+nama pengguna : admin
+kata sandi : admin
+
+Akun Voter
+nama pengguna : voter-SV-53218
+kata sandi : voter

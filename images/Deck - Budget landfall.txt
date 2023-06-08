@@ -1,0 +1,59 @@
+1 Acidic Slime <magic 30> [DMU]
+1 Akoum Hellhound <showcase> [ZNR] (F)
+1 Akoum Hellkite [GN2] (F)
+1 Arcane Signet <brawl deck> [ELD] (F)
+1 Atalan Jackal
+1 Avenger of Zendikar [C18]
+1 Beanstalk Giant <showcase> [ELD] (F)
+1 Boundless Realms [FMB1] (F)
+1 Brushfire Elemental <showcase> [ZNR] (F)
+1 Crop Rotation [C20]
+1 Cultivate <japanese> [STA] (FE)
+1 Dragonmaster Outcast [C19]
+1 Embodiment of Fury [OGW] (F)
+1 Embodiment of Insight [OGW] (F)
+1 Explosive Vegetation [MB1]
+1 Fellwar Stone [CM2]
+1 Fertilid [JMP]
+24 Forest <254> [THB]
+1 Garruk's Packleader [C19]
+1 Geode Rager
+1 Goblin Anarchomancer
+1 Ground Assault [MM3] (F)
+1 Harmonize <japanese> [STA] (FE)
+1 Harrow [C20]
+1 Jaddi Offshoot [IMA]
+1 Jaheira's Respite
+1 Khalni Heart Expedition [MB1]
+1 Lotus Cobra <planeswalker stamp> [ZNR] (F)
+1 Mina and Denn, Wildborn [PRM-PRE] (F)
+20 Mountain <253> [THB]
+1 Nature's Lore [MB1]
+1 Nissa's Renewal [PRM-PRE] (F)
+1 Omnath, Locus of Rage [PRM-PRE] (F)
+1 Oran-Rief Hydra [E01]
+1 Perennial Behemoth <prerelease> [BRO] (F)
+1 Phylath, World Sculptor <planeswalker stamp> [ZNR] (F)
+1 Rampaging Baloths [C19]
+1 Rampant Growth [MB1]
+1 Retreat to Kazandu [E01]
+1 Rites of Flourishing [DPA]
+1 Roiling Regrowth <promo pack> [ZNR] (F)
+1 Rubblehulk [GK2]
+1 Sakura-Tribe Elder [C20]
+1 Scute Swarm <planeswalker stamp> [ZNR] (F)
+1 Shamanic Revelation [MB1]
+1 Sol Ring [C20]
+1 Spitfire Lagac <showcase> [ZNR] (F)
+1 Sporemound [JMP]
+1 Sporocyst
+1 Springbloom Druid [MH1] (F)
+1 Territorial Scythecat <showcase> [ZNR] (F)
+1 Tireless Provisioner
+1 Tunneling Geopede [BFZ] (F)
+1 Warstorm Surge [C19]
+1 Wood Elves <magic 30> [DMU]
+1 Yavimaya Elder [MB1]
+1 Zendikar Incarnate [C18]
+1 Zendikar's Roil [JMP]
+
