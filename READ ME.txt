@@ -1,7 +1,3 @@
-Akun administrator
-nama pengguna : admin
-kata sandi : admin
+SISTEM E-VOTING
 
-Akun Voter
-nama pengguna : voter-SV-53218
-kata sandi : voter
+ini merupakan prototype yang dirancang untuk penggunaan sistem e-voting
