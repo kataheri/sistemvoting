@@ -23,15 +23,34 @@
 						}
 						else{
 							foreach($_POST[$position] as $key => $values){
-								$sql_array[] = "INSERT INTO votes (voters_id, candidate_id, position_id) VALUES ('".$voter['id']."', '$values', '$pos_id')";
+								$sql_array[] = "INSERT INTO votes (voters_id, president_id, candidate_id, position_id) VALUES ('".$voter['id']."', '$values', '$pos_id')";
 							}
 
 						}
 						
 					}
 					else{
+						// print_r($_POST);
+						// die;
 						$candidate = $_POST[$position];
-						$sql_array[] = "INSERT INTO votes (voters_id, candidate_id, position_id) VALUES ('".$voter['id']."', '$candidate', '$pos_id')";
+
+						// dapetin id position
+						$position_id= $row['id'];
+
+						// cari position id di tabel candidate:
+						$sql = "SELECT * FROM candidates WHERE position_id = '$position_id'";
+						$cmquery = $conn->query($sql);
+						$affected = $conn->affected_rows;
+						if($affected >0){
+							$candidate_id = $candidate;
+							$president_id = 0;
+						}
+						else{
+							$president_id = $candidate;
+							$candidate_id = 0;
+						}
+						// $candidate = $_POST[$position];
+						$sql_array[] = "INSERT INTO votes (voters_id, president_id, candidate_id, position_id) VALUES ('".$voter['id']."', '$president_id', '$candidate_id', '$pos_id')";
 					}
 
 				}

@@ -233,13 +233,45 @@
   $sql = "SELECT * FROM positions ORDER BY priority ASC";
   $query = $conn->query($sql);
   while($row = $query->fetch_assoc()){
-    $sql = "SELECT * FROM candidates WHERE position_id = '".$row['id']."'";
+
+    // dapetin id position
+    $position_id= $row['id'];
+
+    // cari position id di tabel candidate:
+    $sql = "SELECT * FROM candidates WHERE position_id = '$position_id'";
+    $cmquery = $conn->query($sql);
+    $affected = $conn->affected_rows;
+    if($affected > 0){
+      $sql = "SELECT * FROM candidates WHERE position_id = '$position_id'";
+
+    }
+    else{
+      $sql = "SELECT * FROM president WHERE position_id='$position_id'";
+      
+    }
+    
+
+    // $sql = "SELECT * FROM candidates WHERE position_id = '".$row['id']."'";
     $cquery = $conn->query($sql);
     $carray = array();
     $varray = array();
     while($crow = $cquery->fetch_assoc()){
       array_push($carray, $crow['fullname']);
+      
+      // cari position id di tabel candidate:
+    $sql = "SELECT * FROM candidates WHERE position_id = '$position_id'";
+    $cmquery = $conn->query($sql);
+    $affected = $conn->affected_rows;
+    if($affected > 0){
       $sql = "SELECT * FROM votes WHERE candidate_id = '".$crow['id']."'";
+
+    }
+    else{
+      $sql = "SELECT * FROM votes WHERE president_id='".$crow['id']."'";
+      
+    }
+
+      // $sql = "SELECT * FROM votes WHERE candidate_id = '".$crow['id']."'";
       $vquery = $conn->query($sql);
       array_push($varray, $vquery->num_rows);
     }

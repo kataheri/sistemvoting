@@ -131,10 +131,12 @@ include 'includes/header.php';
 											$image = (!empty($crow['photo'])) ? 'images/'.$crow['photo'] : 'images/profile.jpg';
 											$presiden .= '
 												<li>
-													'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['fullname'].'"><i class="fa fa-search"></i> Platform</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['fullname'].'</span>
+													'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['fullname'].'" data-ispresident="1"><i class="fa fa-search"></i> Platform</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['fullname'].'</span>
 												</li>
 											';
+											
 										}
+										
 										
 										while($crow = $cquery->fetch_assoc()){
 											$slug = slugify($row['description']);
@@ -154,6 +156,7 @@ include 'includes/header.php';
 														$checked = 'checked';
 													}
 												}
+												
 											}
 											$input = ($row['max_vote'] > 1) ? '<input type="checkbox" class="flat-red '.$slug.'" name="'.$slug."[]".'" value="'.$crow['id'].'" '.$checked.'>' : '<input type="radio" class="flat-red '.$slug.'" name="'.slugify($row['description']).'" value="'.$crow['id'].'" '.$checked."required ".'>';
 											$image = (!empty($crow['photo'])) ? 'images/'.$crow['photo'] : 'images/profile.jpg';
@@ -165,7 +168,6 @@ include 'includes/header.php';
 										}
 										
 										$instruct = ($row['max_vote'] > 1) ? 'Kamu dapat memilih hingga '.$row['max_vote'].' kandidat' : 'Hanya dapat memilih satu kandidat';
-
 										echo '
 											<div class="row">
 												<div class="col-xs-12">
@@ -250,6 +252,7 @@ $(function(){
 			$('#alert').show();
 		}
 		else{
+			console.log(form);
 			$.ajax({
 				type: 'POST',
 				url: 'preview.php',

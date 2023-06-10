@@ -34,16 +34,55 @@
 				
 			}
 			else{
+				// $candidate = $_POST[$position];
+				// $sql = "SELECT * FROM candidates WHERE id = '$candidate'";
+				// $csquery = $conn->query($sql);
+				// $csrow = $csquery->fetch_assoc();
+				// $output['list'] .= "
+				// 	<div class='row votelist'>
+                //       	<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
+                //       	<span class='col-sm-8'>".$csrow['fullname']."</span>
+                //     </div>
+				// ";
+				
+				$desc = $row['description'];
 				$candidate = $_POST[$position];
-				$sql = "SELECT * FROM candidates WHERE id = '$candidate'";
-				$csquery = $conn->query($sql);
-				$csrow = $csquery->fetch_assoc();
-				$output['list'] .= "
-					<div class='row votelist'>
-                      	<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
-                      	<span class='col-sm-8'>".$csrow['fullname']."</span>
-                    </div>
-				";
+				// dapetin id position
+				// $sql_position = "SELECT id FROM positions WHERE `description` = '$desc'";
+				// $pquery = $conn->query($sql_position);
+				// $prow = $pquery->fetch_assoc();
+				// $position_id = $prow['id'];
+				$position_id = $row['id'];
+				
+				// cari position id di tabel candidate:
+				$sql = "SELECT * FROM candidates WHERE position_id = '$position_id'";
+				$cmquery = $conn->query($sql);
+				$affected = $conn->affected_rows;
+				if($affected >0){
+					$sql = "SELECT * FROM candidates WHERE id = '$candidate'";
+					$csquery = $conn->query($sql);
+					$csrow = $csquery->fetch_assoc();
+					$output['list'] .= "
+						<div class='row votelist'>
+							<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
+							<span class='col-sm-8'>".$csrow['fullname']."</span>
+						</div>
+					";
+
+				}
+				else{
+					$sql = "SELECT * FROM president WHERE id = '$candidate'";
+					$cmquery = $conn->query($sql);
+					$cmrow = $cmquery->fetch_assoc();
+					$output['list'] .= "
+						<div class='row votelist'>
+							<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
+							<span class='col-sm-8'>".$cmrow['fullname']."</span>
+						</div>
+					";
+				}
+
+
 			}
 
 		}
