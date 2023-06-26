@@ -60,6 +60,7 @@
                     <div class='row votelist'>
                       <span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
                       <span class='col-sm-8'>".$row['canfirst']."</span>
+                      <span class='col-sm-8'>".$row['prename']."</span>
                     </div>
                   ";
                 }
