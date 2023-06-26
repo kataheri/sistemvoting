@@ -34,24 +34,11 @@
 				
 			}
 			else{
-				// $candidate = $_POST[$position];
-				// $sql = "SELECT * FROM candidates WHERE id = '$candidate'";
-				// $csquery = $conn->query($sql);
-				// $csrow = $csquery->fetch_assoc();
-				// $output['list'] .= "
-				// 	<div class='row votelist'>
-                //       	<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
-                //       	<span class='col-sm-8'>".$csrow['fullname']."</span>
-                //     </div>
-				// ";
 				
 				$desc = $row['description'];
 				$candidate = $_POST[$position];
 				// dapetin id position
-				// $sql_position = "SELECT id FROM positions WHERE `description` = '$desc'";
-				// $pquery = $conn->query($sql_position);
-				// $prow = $pquery->fetch_assoc();
-				// $position_id = $prow['id'];
+				
 				$position_id = $row['id'];
 				
 				// cari position id di tabel candidate:

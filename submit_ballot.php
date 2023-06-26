@@ -30,8 +30,6 @@
 						
 					}
 					else{
-						// print_r($_POST);
-						// die;
 						$candidate = $_POST[$position];
 
 						// dapetin id position

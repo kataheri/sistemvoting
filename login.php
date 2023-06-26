@@ -21,7 +21,6 @@
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['otp'] = $generate_otp;
 
-				// $_SESSION['voter'] = $row['id'];
 			}
 			else{
 				

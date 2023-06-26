@@ -34,7 +34,6 @@
     }
     
 	echo $_SESSION['otp'];
-      // echo $_SESSION['username'];
 
     //logic mengecek OTP
     if (isset($_POST['submitOTP'])) {
@@ -45,15 +44,11 @@
     	$exec = $conn->query($sql);
     	$row = $exec->fetch_assoc();
     	$dateNow = date("Y-m-d H:i:s");
-      
-    	// var_dump($row);
-    	// validation otp
     	
     		// check if expired or not
             // valid
     		if ($dateNow < $row['expired_otp']) {
                   if(password_verify($otp, $row['otp'])){
-          			// $_SESSION['error'] = "OTP valid";
           			$_SESSION['voter'] = $row['id'];
           			header('location: home.php');
           			echo $_SESSION['voter'];

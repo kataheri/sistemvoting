@@ -71,8 +71,6 @@
                     LEFT JOIN `group` on candidates.group_id = `group`.`id` 
                     ORDER BY positions.priority ASC";
                     $query = $conn->query($sql);
-                    //var_dump($query->fetch_assoc());
-                    //die;
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>

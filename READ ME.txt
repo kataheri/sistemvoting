@@ -1,3 +1,0 @@
-SISTEM E-VOTING
-
-ini merupakan prototype yang dirancang untuk penggunaan sistem e-voting

@@ -1,25 +1,4 @@
 <?php
-// set timeout session ke 5 menit
-// $timeout = 1; // setting timeout dalam menit
-// $logout = "index.php"; // redirect halaman logout
-
-// $timeout = $timeout * 10; // menit ke detik
-// if(isset($_SESSION['start_session'])){
-//    $elapsed_time = time()-$_SESSION['start_session'];
-//    if($elapsed_time >= $timeout){
-//       session_destroy();
-//       $_SESSION['error'] = "Sesi telah berakhir";
-//       echo "<script type='text/javascript'>
-//       alert('Sesi telah berakhir');
-//       setInterval(window.location='$logout',1000)
-//       </script>
-//       ";
-                  
-
-//      }
-// }
-
-// $_SESSION['start_session']=time();
 include 'includes/session.php'; 
 include 'includes/header.php'; 
 ?>
@@ -96,8 +75,6 @@ include 'includes/header.php';
 
 				        			$candidate = '';
 									$presiden = '';
-									// var_dump($row['id']);
-									// die;
 				        			$sql = "SELECT * FROM positions ORDER BY priority ASC";
 									$query = $conn->query($sql);
 									while($row = $query->fetch_assoc()){
@@ -105,8 +82,6 @@ include 'includes/header.php';
 										$sql = "SELECT * FROM candidates WHERE position_id='".$row['id']."'";
 										$cquery = $conn->query($sql);
 										$dquery = $conn->query($sqlpresident);
-										// var_dump($row['id']);
-										// die;
 
 										while($crow = $dquery->fetch_assoc()){
 											$slug = slugify($row['description']);

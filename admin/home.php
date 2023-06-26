@@ -109,6 +109,26 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <?php
+                $sql = "SELECT * FROM president";
+                $query = $conn->query($sql);
+
+                echo "<h3>".$query->num_rows."</h3>";
+              ?>
+          
+              <p>Total Kandidat Ketua</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-black-tie"></i>
+            </div>
+            <a href="president.php" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
               <?php
@@ -250,8 +270,6 @@
       
     }
     
-
-    // $sql = "SELECT * FROM candidates WHERE position_id = '".$row['id']."'";
     $cquery = $conn->query($sql);
     $carray = array();
     $varray = array();
@@ -271,7 +289,6 @@
       
     }
 
-      // $sql = "SELECT * FROM votes WHERE candidate_id = '".$crow['id']."'";
       $vquery = $conn->query($sql);
       array_push($varray, $vquery->num_rows);
     }
