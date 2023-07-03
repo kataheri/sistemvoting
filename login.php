@@ -45,7 +45,7 @@ function sendOTP($email, $voter, $conn){
 		$to = $email;
 		$subject = "My subject";
 		$txt = "Hello world!";
-		$headers = "From: heriaji72@gmail.com";
+		$headers = "From: felix.swift916@gmail.com";
 		error_reporting(E_ALL|E_STRICT);
 		ini_set('display_errors', 1);
 		$email = mail($to,$subject,$txt,$headers);
