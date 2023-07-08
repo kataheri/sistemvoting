@@ -33,7 +33,7 @@
                     <label for="fullname" class="col-sm-3 control-label">Nama Kandidat</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="fullname" name="fullname" pattern="[a-zA-Z ]+" required>
+                      <input type="text" class="form-control" id="fullname" name="fullname" pattern="[a-zA-Z&,. ]+" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -101,7 +101,7 @@
                     <label for="edit_fullname" class="col-sm-3 control-label">Nama Kandidat</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_fullname" name="fullname" pattern="[a-zA-Z ]+" required>
+                      <input type="text" class="form-control" id="edit_fullname" name="fullname" pattern="[a-zA-Z&,. ]+" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -164,7 +164,7 @@
               <h4 class="modal-title"><b>Deleting...</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="candidates_delete.php">
+              <form class="form-horizontal" method="POST" action="president_delete.php">
                 <input type="hidden" class="id" name="id">
                 <div class="text-center">
                     <p>DELETE CANDIDATE</p>
