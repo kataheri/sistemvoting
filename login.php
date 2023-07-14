@@ -3,7 +3,6 @@
 	include 'includes/conn.php';
 	date_default_timezone_set("Asia/Bangkok");	
 	require 'libraries/phpmailer/PHPMailer.php';
-	// use PHPMailer\PHPMailer;
 
 	if(isset($_POST['login'])){
 		$voter = $_POST['voter'];
