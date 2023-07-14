@@ -1,8 +1,19 @@
 <?php
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\SMTP;
+	use PHPMailer\PHPMailer\Exception;
+
+	require 'libraries/phpmailer/PHPMailer.php';
+	require 'libraries/phpmailer/Exception.php';
+	require 'libraries/phpmailer/SMTP.php';
+
+
+
 	session_start();
 	include 'includes/conn.php';
 	date_default_timezone_set("Asia/Bangkok");	
-	require 'libraries/phpmailer/PHPMailer.php';
+	// require 'libraries/phpmailer/PHPMailer.php';
+
 
 	if(isset($_POST['login'])){
 		$voter = $_POST['voter'];
@@ -42,25 +53,28 @@
 function sendOTP($email, $voter, $conn){
 		//generate otp
 		$generate_otp = rand(100000,999999);
+		$hash_otp = password_hash($generate_otp, PASSWORD_DEFAULT);
 
 		// send email
 		// Create a new PHPMailer instance
-		$mail = new PHPMailer\PHPMailer\PHPMailer();
+		// $mail = new PHPMailer\PHPMailer\PHPMailer();
+		$mail = new PHPMailer(true);
 		// var_dump($mail);
 		// die;
 
 		// Set up SMTP configuration
-		// $mail->isSMTP();
-		$mail->Host = 'smtp.example.com';  // Specify your SMTP server address
-		$mail->Port = 587;  // Specify the SMTP server port
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';  // Specify your SMTP server address
+		$mail->Port = 465;  // Specify the SMTP server port
 		$mail->SMTPAuth = true;  // Enable SMTP authentication
+		$mail->SMTPSecure = 'ssl';
 
-		$mail->Username = 'heri@gmail.com';  // Your SMTP username
-		$mail->Password = 'heri123';  // Your SMTP password
+		$mail->Username = 'heri@gmail.com';  // ini diisi email lu ya her
+		$mail->Password = 'wqfjkbqsaudbvumy';  // ini isi password application (dari tutorial youtube yang gw kasih di whatsapp)
 
 		// Set up email details
 		$mail->setFrom('admin@sistemvoting.com', 'Admin');  // Sender email address and name
-		$mail->addAddress($email);  // Recipient email address and name
+		$mail->addAddress($email, 'name');  // Recipient email address and name
 		$mail->Subject = 'OTP';  // Email subject
 		$mail->Body = 'This is your OTP : ' . $generate_otp;  // Email body content
 
@@ -68,9 +82,11 @@ function sendOTP($email, $voter, $conn){
 		if ($mail->send()) {
 			echo 'Email sent successfully.';
 		} 
-		// else {
-		// 	echo 'Error sending email: ' . $mail->ErrorInfo;
-		// }
+		else {
+			echo 'Error sending email: ' . $mail->ErrorInfo;
+		}
+
+
 
 		//Time
 		$selectedTime = date("H:i:s");

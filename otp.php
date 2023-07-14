@@ -34,7 +34,7 @@
     	header('location: index.php');
     }
     
-	echo $_SESSION['otp'];
+	// echo $_SESSION['otp'];
 
     //logic mengecek OTP
     if (isset($_POST['submitOTP'])) {
