@@ -2,6 +2,9 @@
 	session_start();
 	include 'includes/conn.php';
 	date_default_timezone_set("Asia/Bangkok");	
+	require 'libraries/phpmailer/PHPMailer.php';
+	// use PHPMailer\PHPMailer;
+
 	if(isset($_POST['login'])){
 		$voter = $_POST['voter'];
 		$password = $_POST['password'];
@@ -42,15 +45,33 @@ function sendOTP($email, $voter, $conn){
 		$generate_otp = rand(100000,999999);
 
 		// send email
-		$to = $email;
-		$subject = "My subject";
-		$txt = "Hello world!";
-		$headers = "From: felix.swift916@gmail.com";
-		error_reporting(E_ALL|E_STRICT);
-		ini_set('display_errors', 1);
-		$email = mail($to,$subject,$txt,$headers);
-		$hash_otp = password_hash($generate_otp, PASSWORD_DEFAULT);
-		$date = date("Y-m-d H:i:s");
+		// Create a new PHPMailer instance
+		$mail = new PHPMailer\PHPMailer\PHPMailer();
+		// var_dump($mail);
+		// die;
+
+		// Set up SMTP configuration
+		// $mail->isSMTP();
+		$mail->Host = 'smtp.example.com';  // Specify your SMTP server address
+		$mail->Port = 587;  // Specify the SMTP server port
+		$mail->SMTPAuth = true;  // Enable SMTP authentication
+
+		$mail->Username = 'heri@gmail.com';  // Your SMTP username
+		$mail->Password = 'heri123';  // Your SMTP password
+
+		// Set up email details
+		$mail->setFrom('admin@sistemvoting.com', 'Admin');  // Sender email address and name
+		$mail->addAddress($email);  // Recipient email address and name
+		$mail->Subject = 'OTP';  // Email subject
+		$mail->Body = 'This is your OTP : ' . $generate_otp;  // Email body content
+
+		// Send the email
+		if ($mail->send()) {
+			echo 'Email sent successfully.';
+		} 
+		// else {
+		// 	echo 'Error sending email: ' . $mail->ErrorInfo;
+		// }
 
 		//Time
 		$selectedTime = date("H:i:s");
