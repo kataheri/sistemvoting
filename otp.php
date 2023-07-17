@@ -1,8 +1,9 @@
 <?php
 
-      session_start();
+    session_start();
   	include 'includes/conn.php';
-      date_default_timezone_set("Asia/Bangkok");      
+    date_default_timezone_set("Asia/Bangkok"); 
+
 
       // $timeout = 1; // setting timeout dalam menit
       // $logout = "index.php"; // redirect halaman logout
@@ -33,7 +34,7 @@
     	header('location: index.php');
     }
     
-	echo $_SESSION['otp'];
+	// echo $_SESSION['otp'];
 
     //logic mengecek OTP
     if (isset($_POST['submitOTP'])) {
