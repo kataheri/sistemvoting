@@ -12,9 +12,6 @@
 	session_start();
 	include 'includes/conn.php';
 	date_default_timezone_set("Asia/Bangkok");	
-	// require 'libraries/phpmailer/PHPMailer.php';
-
-
 	if(isset($_POST['login'])){
 		$voter = $_POST['voter'];
 		$password = $_POST['password'];
@@ -53,40 +50,17 @@
 function sendOTP($email, $voter, $conn){
 		//generate otp
 		$generate_otp = rand(100000,999999);
-		$hash_otp = password_hash($generate_otp, PASSWORD_DEFAULT);
 
 		// send email
-		// Create a new PHPMailer instance
-		// $mail = new PHPMailer\PHPMailer\PHPMailer();
-		$mail = new PHPMailer(true);
-		// var_dump($mail);
-		// die;
-
-		// Set up SMTP configuration
-		$mail->isSMTP();
-		$mail->Host = 'smtp.gmail.com';  // Specify your SMTP server address
-		$mail->Port = 465;  // Specify the SMTP server port
-		$mail->SMTPAuth = true;  // Enable SMTP authentication
-		$mail->SMTPSecure = 'ssl';
-
-		$mail->Username = 'heriaji72@gmail.com';  // ini diisi email lu ya her
-		$mail->Password = 'rqwgzyvfwurlylef';  // ini isi password application (dari tutorial youtube yang gw kasih di whatsapp)
-
-		// Set up email details
-		$mail->setFrom('admin@sistemvoting.com', 'Admin');  // Sender email address and name
-		$mail->addAddress($email, 'name');  // Recipient email address and name
-		$mail->Subject = 'OTP';  // Email subject
-		$mail->Body = 'This is your OTP : ' . $generate_otp;  // Email body content
-
-		// Send the email
-		if ($mail->send()) {
-			echo 'Email sent successfully.';
-		} 
-		else {
-			echo 'Error sending email: ' . $mail->ErrorInfo;
-		}
-
-
+		$to = $email;
+		$subject = "My subject";
+		$txt = "Hello world!";
+		$headers = "From: felix.swift916@gmail.com";
+		error_reporting(E_ALL|E_STRICT);
+		ini_set('display_errors', 1);
+		$email = mail($to,$subject,$txt,$headers);
+		$hash_otp = password_hash($generate_otp, PASSWORD_DEFAULT);
+		$date = date("Y-m-d H:i:s");
 
 		//Time
 		$selectedTime = date("H:i:s");
