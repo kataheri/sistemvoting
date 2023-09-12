@@ -4,28 +4,6 @@
   	include 'includes/conn.php';
     date_default_timezone_set("Asia/Bangkok"); 
 
-
-      // $timeout = 1; // setting timeout dalam menit
-      // $logout = "index.php"; // redirect halaman logout
-
-      // $timeout = $timeout * 10; // menit ke detik
-      // if(isset($_SESSION['start_session'])){
-      //       $elapsed_time = time()-$_SESSION['start_session'];
-      //       if($elapsed_time >= $timeout){
-      //             session_destroy();
-      //             $_SESSION['error'] = "Sesi telah berakhir";
-      //             echo "<script type='text/javascript'>
-      //             alert('Sesi telah berakhir');
-      //             setInterval(window.location='$logout',1000)
-      //            </script>
-      //             ";
-                  
-
-      //       }
-      // }
-
-      // $_SESSION['start_session']=time();
-
   	 if(isset($_SESSION['voter'])){
       header('location: home.php');
     }
@@ -33,8 +11,6 @@
     if(!isset($_SESSION['username'])){
     	header('location: index.php');
     }
-    
-	// echo $_SESSION['otp'];
 
     //logic mengecek OTP
     if (isset($_POST['submitOTP'])) {

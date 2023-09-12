@@ -69,7 +69,15 @@ include 'includes/header.php';
 				    	else{
 				    		?>
 			    			<!-- Voting Ballot -->
-						    <form method="POST" id="ballotForm" action="submit_ballot.php">
+							<style>
+    							.text-center p {
+        							font-size: 24px; /* Adjust the font size as per your preference */
+    							}
+							</style>
+						    <div class="text-center">
+   								<p>pilihanmu mempengaruhi masa depan negara, pilihlah dengan bijak!</p>
+							</div>
+							<form method="POST" id="ballotForm" action="submit_ballot.php">
 				        		<?php
 				        			include 'includes/slugify.php';
 
@@ -78,8 +86,8 @@ include 'includes/header.php';
 				        			$sql = "SELECT * FROM positions ORDER BY priority ASC";
 									$query = $conn->query($sql);
 									while($row = $query->fetch_assoc()){
-										$sqlpresident = "SELECT * FROM president WHERE position_id='".$row['id']."'";
-										$sql = "SELECT * FROM candidates WHERE position_id='".$row['id']."'";
+										$sqlpresident = "SELECT * FROM president WHERE position_id=" . $row['id'];
+										$sql = "SELECT * FROM candidates WHERE position_id=" . $row['id'];
 										$cquery = $conn->query($sql);
 										$dquery = $conn->query($sqlpresident);
 
@@ -106,7 +114,7 @@ include 'includes/header.php';
 											$image = (!empty($crow['photo'])) ? 'images/'.$crow['photo'] : 'images/profile.jpg';
 											$presiden .= '
 												<li>
-													'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['fullname'].'" data-ispresident="1"><i class="fa fa-search"></i> Platform</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['fullname'].'</span>
+													'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['fullname'].'" data-ispresident="1"><i class="fa fa-search"></i> Lihat Visi</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['fullname'].'</span>
 												</li>
 											';
 											
@@ -137,7 +145,7 @@ include 'includes/header.php';
 											$image = (!empty($crow['photo'])) ? 'images/'.$crow['photo'] : 'images/profile.jpg';
 											$candidate .= '
 												<li>
-													'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['fullname'].'"><i class="fa fa-search"></i> Platform</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['fullname'].'</span>
+													'.$input.'<button type="button" class="btn btn-primary btn-sm btn-flat clist platform" data-platform="'.$crow['platform'].'" data-fullname="'.$crow['fullname'].'"><i class="fa fa-search"></i> Lihat Visi</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['fullname'].'</span>
 												</li>
 											';
 										}

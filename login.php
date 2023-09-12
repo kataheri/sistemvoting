@@ -23,7 +23,7 @@
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
-			$_SESSION['error'] = 'Username salah';
+			$_SESSION['error'] = 'Username tidak terdaftar';
 			
 		}
 		else{
@@ -90,7 +90,7 @@ function sendOTP($email, $voter, $conn){
 
 		//Time
 		$selectedTime = date("H:i:s");
-		$endTime = strtotime("+5 minutes", strtotime($selectedTime));
+		$endTime = strtotime("+1 minutes", strtotime($selectedTime));
 		$expired_date =  date("Y-m-d H:i:s", $endTime);
 
 		//update to db
