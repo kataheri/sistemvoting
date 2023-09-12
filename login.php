@@ -69,8 +69,8 @@ function sendOTP($email, $voter, $conn){
 		$mail->SMTPAuth = true;  // Enable SMTP authentication
 		$mail->SMTPSecure = 'ssl';
 
-		$mail->Username = 'heriaji72@gmail.com';  // ini diisi email lu ya her
-		$mail->Password = 'rqwgzyvfwurlylef';  // ini isi password application (dari tutorial youtube yang gw kasih di whatsapp)
+		$mail->Username = 'heriaji72@gmail.com';  // Your SMTP username
+		$mail->Password = 'rqwgzyvfwurlylef';  // Your SMTP password
 
 		// Set up email details
 		$mail->setFrom('admin@sistemvoting.com', 'Admin');  // Sender email address and name

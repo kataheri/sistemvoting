@@ -11,6 +11,8 @@
     if(!isset($_SESSION['username'])){
     	header('location: index.php');
     }
+    
+	
 
     //logic mengecek OTP
     if (isset($_POST['submitOTP'])) {
