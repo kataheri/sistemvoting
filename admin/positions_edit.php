@@ -19,5 +19,4 @@
 	}
 
 	header('location: positions.php');
-
 ?>

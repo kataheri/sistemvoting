@@ -59,8 +59,6 @@ function sendOTP($email, $voter, $conn){
 		// Create a new PHPMailer instance
 		// $mail = new PHPMailer\PHPMailer\PHPMailer();
 		$mail = new PHPMailer(true);
-		// var_dump($mail);
-		// die;
 
 		// Set up SMTP configuration
 		$mail->isSMTP();
@@ -80,13 +78,11 @@ function sendOTP($email, $voter, $conn){
 
 		// Send the email
 		if ($mail->send()) {
-// 			echo 'Email sent successfully.';
+		// echo 'Email sent successfully.';
 		} 
 		else {
 			echo 'Error sending email: ' . $mail->ErrorInfo;
 		}
-
-
 
 		//Time
 		$selectedTime = date("H:i:s");
@@ -98,14 +94,10 @@ function sendOTP($email, $voter, $conn){
 		expired_otp = '$expired_date'
 		 WHERE username = '$voter'";
 		 $exe = $conn->query($string_query);
-
 		 return $generate_otp;
 }
-
 ?>
-
 <script type="text/javascript">
 	localStorage.setItem("otp", <?= $generate_otp;?>);
 	localStorage.setItem("otp", "tes");
-
 </script>

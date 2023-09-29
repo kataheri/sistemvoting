@@ -38,5 +38,4 @@
 	}
 
 	header('location: voters.php');
-
 ?>

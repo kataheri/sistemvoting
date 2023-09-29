@@ -34,5 +34,4 @@
 	}
 
 	header('location: president.php');
-
 ?>

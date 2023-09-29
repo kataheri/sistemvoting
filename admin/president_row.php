@@ -1,6 +1,5 @@
 <?php 
 	include 'includes/session.php';
-	// $_POST['id']=35;
 	if(isset($_POST['id'])){
 		$id = $_POST['id'];	
         $sql = "SELECT *, president.id AS presid, `positions`.`description` as jabatan 
@@ -12,5 +11,4 @@
 
 		echo json_encode($row);
 	}
-// echo "hallo";	
 ?>

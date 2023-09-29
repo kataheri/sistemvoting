@@ -1,20 +1,15 @@
 <?php
-
     session_start();
   	include 'includes/conn.php';
     date_default_timezone_set("Asia/Bangkok"); 
-
   	 if(isset($_SESSION['voter'])){
       header('location: home.php');
     }
-    
     if(!isset($_SESSION['username'])){
     	header('location: index.php');
     }
-    
-	
 
-    //logic mengecek OTP
+	//logic mengecek OTP
     if (isset($_POST['submitOTP'])) {
     	$logout = "index.php";
     	$otp = $_POST['otp'];
@@ -45,11 +40,7 @@
                  echo "<script type='text/javascript'>
                   window.location.replace('index.php');
                  </script>";
-    		}
-
-    	
-     
-      
+    		}      
     }
 ?>
 <?php include 'includes/header.php'; ?>
@@ -80,7 +71,6 @@
   		}
   	?>
 </div>
-	
 <?php include 'includes/scripts.php' ?>
 </body>
 </html>

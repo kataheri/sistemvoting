@@ -10,5 +10,4 @@
 	}
 
 	header('location: votes.php');
-
 ?>
