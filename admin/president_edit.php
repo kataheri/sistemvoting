@@ -5,7 +5,6 @@
 		$id = $_POST['id'];
 		$fullname = $_POST['fullname'];
 		$position = $_POST['position'];
-		$groupname = $_POST['groupname'];
 		$platform = $_POST['platform'];
 		$filename = $_FILES['photo']['name'];
 		
@@ -21,7 +20,7 @@
 			$filename = $fetch['photo'];
 		}
 
-		$sql = "UPDATE president SET fullname = '$fullname', position_id = '$position', groupname = '$groupname', platform = '$platform', photo = '$filename' WHERE id = '$id'";
+		$sql = "UPDATE president SET fullname = '$fullname', position_id = '$position', platform = '$platform', photo = '$filename' WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Candidate updated successfully';
 		}

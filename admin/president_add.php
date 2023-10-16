@@ -4,15 +4,14 @@
 	if(isset($_POST['add'])){
 		$fullname = $_POST['fullname'];
 		$position = $_POST['position'];
-		$groupname = $_POST['groupname'];
 		$platform = $_POST['platform'];
 		$filename = $_FILES['photo']['name'];
 		if(!empty($filename)){
 			move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);	
 		}
 
-		$sql = "INSERT INTO president (position_id, groupname, fullname, photo, platform) 
-        VALUES ('$position', '$groupname', '$fullname','$filename', '$platform')";
+		$sql = "INSERT INTO president (position_id, fullname, photo, platform) 
+        VALUES ('$position', '$fullname','$filename', '$platform')";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'president added successfully';
 		}

@@ -55,13 +55,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="groupname" class="col-sm-3 control-label">Koalisi Pendukung</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="groupname" name="groupname" pattern="[a-zA-Z ,:]+" required>
-                    </div>
-                </div>               
-                <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Photo</label>
 
                     <div class="col-sm-9">
@@ -121,13 +114,6 @@
                           }
                         ?>
                       </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="edit_groupname" class="col-sm-3 control-label">Koalisi Pendukung</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_groupname" name="groupname" pattern="[a-zA-Z ,:]+" required>
                     </div>
                 </div>
                 <div class="form-group">
