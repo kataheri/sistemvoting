@@ -15,5 +15,6 @@
 		$_SESSION['error'] = 'Select item to delete first';
 	}
 
-	header('location: president.php');	
+	header('location: president.php');
+	
 ?>

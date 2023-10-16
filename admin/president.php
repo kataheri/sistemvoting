@@ -53,7 +53,6 @@
                 <thead>
                   <th class="hidden"></th>
                   <th>Posisi</th>
-                  <th>Koalisi Pendukung</th>
                   <th>Foto</th>
                   <th>Nama Lengkap</th>
                   <th>Platform</th>
@@ -75,7 +74,6 @@
                         <tr>
                           <td class='hidden'></td>
                           <td>".$row['jabatan']."</td>
-                          <td>".$row['groupname']."</td>
                           <td>
                             <img src='".$image."' width='30px' height='30px'>
                             <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['presid']."'></a>
@@ -148,7 +146,6 @@ function getRow(id){
 
       $('.id').val(response.presid);
       $('#edit_fullname').val(response.fullname); 
-      $('#edit_groupname').val(response.groupname);
       $('#posselect').val(response.position_id).html(response.jabatan);      
       $('#edit_platform').val(response.platform);
       $('.fullname').html(response.fullname);

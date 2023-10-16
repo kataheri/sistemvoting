@@ -150,7 +150,7 @@
               <h4 class="modal-title"><b>Deleting...</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="candidates_delete.php">
+              <form class="form-horizontal" method="POST" action="president_delete.php">
                 <input type="hidden" class="id" name="id">
                 <div class="text-center">
                     <p>DELETE CANDIDATE</p>
