@@ -12,9 +12,18 @@
 		$checkQuery = "SELECT * FROM voters WHERE username = '$username' AND id <> $id";
 		$checkResult = $conn->query($checkQuery);
 	
-		if ($checkResult->num_rows > 0) {
-			$_SESSION['error'] = 'Username/NIK sudah ada yg punya. mohon gunakan username/NIK pribadi.';
-		} else {
+		// Validasi panjang username
+		if (strlen($username) < 4) {
+			$_SESSION['error'] = 'Username harus memiliki minimal 4 karakter.';
+		}
+		// Validasi format email menggunakan ekspresi reguler
+		elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$_SESSION['error'] = 'Format email tidak valid. Mohon gunakan alamat email yang benar.';
+		}
+		// Jika semua validasi berhasil, maka lakukan pengecekan username dan masukkan data
+		elseif ($checkResult->num_rows > 0) {
+			$_SESSION['error'] = 'Username/NIK sudah ada yang punya. Mohon gunakan username/NIK pribadi.';
+		else {
 			$sql = "SELECT * FROM voters WHERE id = $id";
 			$query = $conn->query($sql);
 			$row = $query->fetch_assoc();
