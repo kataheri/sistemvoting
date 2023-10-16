@@ -8,7 +8,7 @@
               <h4 class="modal-title"><b><span class="fullname"></span></b></h4>
             </div>
             <div class="modal-body">
-              <img style="width:25%" id="photo_candidate" src="">
+              <img style="width:25%" id="photo_president" src="">
                 <p id="desc"></p>
             </div>
             <div class="modal-footer">
