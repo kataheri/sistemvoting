@@ -12,11 +12,21 @@ if (isset($_POST['vote'])) {
     $sql = "SELECT * FROM positions";
     $query = $conn->query($sql);
 
+    // Inisialisasi pesan kesalahan "Mohon isi setiap jabatan"
+    $jabatan_error = false;
+
     while ($row = $query->fetch_assoc()) {
         $position = slugify($row['description']);
         $pos_id = $row['id'];
 
-        if (isset($selectedCandidates[$position])) {
+        if (!isset($selectedCandidates[$position])) {
+            if (!$jabatan_error) {
+                $_SESSION['error'][] = 'Mohon isi setiap jabatan';
+                $jabatan_error = true;
+            }
+            $_SESSION['error'][] = 'Select candidates for ' . $row['description'];
+            $error = true;
+        } else {
             if ($row['max_vote'] > 1) {
                 if (count($selectedCandidates[$position]) > $row['max_vote']) {
                     $_SESSION['error'][] = 'You can only choose ' . $row['max_vote'] . ' candidates for ' . $row['description'];
@@ -47,9 +57,6 @@ if (isset($_POST['vote'])) {
 
                 $sql_array[] = "INSERT INTO votes (voters_id, president_id, candidate_id, position_id) VALUES ('" . $voter['id'] . "', '$president_id', '$candidate_id', '$pos_id')";
             }
-        } else {
-            $_SESSION['error'][] = 'Select candidates for ' . $row['description'];
-            $error = true;
         }
     }
 
