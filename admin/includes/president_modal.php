@@ -58,7 +58,7 @@
                     <label for="photo" class="col-sm-3 control-label">Photo</label>
 
                     <div class="col-sm-9">
-                      <input type="file" id="photo" name="photo" required="">
+                    <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -120,7 +120,7 @@
                     <label for="edit_photo" class="col-sm-3 control-label">Foto</label>
 
                     <div class="col-sm-9">
-                      <input type="file" class="form-control" id="edit_photo" name="photo">
+                      <input type="file" class="form-control" id="edit_photo" name="photo" accept=".jpg, .jpeg, .png" required>
                     </div>
                 </div>
                 <div class="form-group">
