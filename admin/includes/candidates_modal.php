@@ -156,7 +156,7 @@
                     <label for="edit_photo" class="col-sm-3 control-label">Foto</label>
 
                     <div class="col-sm-9">
-                      <input type="file" class="form-control" id="edit_photo" name="photo" accept=".jpg, .jpeg, .png" required>
+                      <input type="file" class="form-control" id="edit_photo" name="photo" accept=".jpg, .jpeg, .png">
                     </div>
                 </div>
                 <div class="form-group">

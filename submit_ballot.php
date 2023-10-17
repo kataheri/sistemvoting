@@ -12,18 +12,12 @@ if (isset($_POST['vote'])) {
     $sql = "SELECT * FROM positions";
     $query = $conn->query($sql);
 
-    // Inisialisasi pesan kesalahan "Mohon isi setiap jabatan"
-    $jabatan_error = false;
-
     while ($row = $query->fetch_assoc()) {
         $position = slugify($row['description']);
         $pos_id = $row['id'];
 
         if (!isset($selectedCandidates[$position])) {
-            if (!$jabatan_error) {
-                $_SESSION['error'][] = 'Mohon isi setiap jabatan';
-                $jabatan_error = true;
-            }
+            $_SESSION['error']['mohon'] = 'Mohon isi setiap jabatan'; // Notifikasi ini harus berada di atas notifikasi berikutnya
             $_SESSION['error'][] = 'Select candidates for ' . $row['description'];
             $error = true;
         } else {
