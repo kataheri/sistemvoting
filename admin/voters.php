@@ -61,7 +61,6 @@
                     $sql = "SELECT * FROM voters";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
-                      $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
                       echo "
                         <tr>
                           <td>".$row['fullname']."</td>
@@ -100,12 +99,6 @@ $(function(){
   $(document).on('click', '.delete', function(e){
     e.preventDefault();
     $('#delete').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $(document).on('click', '.photo', function(e){
-    e.preventDefault();
     var id = $(this).data('id');
     getRow(id);
   });
