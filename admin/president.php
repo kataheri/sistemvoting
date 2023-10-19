@@ -132,31 +132,31 @@ $(function(){
 
 });
 
-function getRow(id){
+function getRow(id) {
   $.ajax({
     type: 'POST',
     url: 'president_row.php',
-    data: {id:id},
+    data: { id: id },
     dataType: 'json',
-    success: function(response){
+    success: function(response) {
       // set url image 
       var url = window.location.href; //full url yang sekarang sedang aktif
-      var urlBaru = url.replace('president.php','');
-      var urlFix = urlBaru.replace('/admin','');
+      var urlBaru = url.replace('president.php', '');
+      var urlFix = urlBaru.replace('/admin', '');
 
       $('.id').val(response.presid);
-      $('#edit_fullname').val(response.fullname); 
-      $('#posselect').val(response.position_id).html(response.jabatan);      
-      $('#edit_platform').val(response.platform);
+      $('#edit_fullname').val(response.fullname);
+      $('#posselect').val(response.position_id).html(response.jabatan);
       $('.fullname').html(response.fullname);
-      $('#desc').html(response.platform);
-      $('#photo_candidate').attr('src', urlFix + 'images/'+response.photo);
-      console.log(response);
 
-      console.log(urlfix);
+      // Mengganti karakter newline (\n) dengan tag <br> untuk menampilkan platform dengan spasi
+      $('#desc').html(response.platform.replace(/\n/g, '<br>'));
+
+      $('#photo_candidate').attr('src', urlFix + 'images/' + response.photo);
     }
   });
 }
+
 </script>
 </body>
 </html>
