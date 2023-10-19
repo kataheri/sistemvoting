@@ -3,6 +3,10 @@
   	if(isset($_SESSION['admin'])){
     	header('location:home.php');
   	}
+	
+	if(isset($_SESSION['username'])){
+    header('location: otp.php');
+	}
 ?>
 <?php include 'includes/header.php'; ?>
 <body style="background-image:url(../dist/img/bkg1.jpeg); background-size:cover;" class="hold-transition login-page">
