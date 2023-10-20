@@ -146,9 +146,9 @@ function getRow(id) {
 
       $('.id').val(response.presid);
       $('#edit_fullname').val(response.fullname);
-      $('#posselect').val(response.position_id).html(response.jabatan);
+      $('#posselect').val(response.position_id).html(response.jabatan);      
+      $('#edit_platform').val(response.platform);
       $('.fullname').html(response.fullname);
-
       // Mengganti karakter newline (\n) dengan tag <br> untuk menampilkan platform dengan spasi
       $('#desc').html(response.platform.replace(/\n/g, '<br>'));
 

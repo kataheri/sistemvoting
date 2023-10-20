@@ -86,7 +86,7 @@ function sendOTP($email, $voter, $conn){
 
 		//Time
 		$selectedTime = date("H:i:s");
-		$endTime = strtotime("+1 minutes", strtotime($selectedTime));
+		$endTime = strtotime("+3 minutes", strtotime($selectedTime));
 		$expired_date =  date("Y-m-d H:i:s", $endTime);
 
 		//update to db

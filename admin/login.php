@@ -3,9 +3,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'libraries/phpmailer/PHPMailer.php';
-require 'libraries/phpmailer/Exception.php';
-require 'libraries/phpmailer/SMTP.php';
+require '../libraries/phpmailer/PHPMailer.php';
+require '../libraries/phpmailer/Exception.php';
+require '../libraries/phpmailer/SMTP.php';
 
 session_start();
 include 'includes/conn.php';
@@ -71,7 +71,7 @@ function sendOTP($email, $username, $conn)
 
     // Time
     $selectedTime = date("Y-m-d H:i:s"); // Menambahkan tanggal untuk saat ini
-    $endTime = strtotime("+1 minutes", strtotime($selectedTime));
+    $endTime = strtotime("+3 minutes", strtotime($selectedTime));
     $expired_date = date("Y-m-d H:i:s", $endTime);
 
     // update to db

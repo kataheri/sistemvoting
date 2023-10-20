@@ -224,7 +224,7 @@ $(function(){
 		var platform = $(this).data('platform');
 		var fullname = $(this).data('fullname');
 		$('.candidate').html(fullname);
-		$('#plat_view').html(platform);
+		$('#plat_view').html(platform.replace(/\n/g, '<br>'));
 	});
 
 	$('#preview').click(function(e){
