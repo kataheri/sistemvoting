@@ -1,42 +1,65 @@
 <?php
-	include 'includes/session.php';
+include 'includes/session.php';
 
-	if (isset($_POST['edit'])) {
-		$id = $_POST['id'];
-		$fullname = $_POST['fullname'];
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-	
-		// Check if the new username already exists for other voters
-		$checkQuery = "SELECT * FROM voters WHERE username = '$username' AND id <> $id";
-		$checkResult = $conn->query($checkQuery);
-	
-		// Jika semua validasi berhasil, maka lakukan pengecekan username dan masukkan data
-		if ($checkResult->num_rows > 0) {
-			$_SESSION['error'] = 'Username/NIK sudah ada yang punya. Mohon gunakan username/NIK pribadi.';
-		else {
-			$sql = "SELECT * FROM voters WHERE id = $id";
-			$query = $conn->query($sql);
-			$row = $query->fetch_assoc();
-	
-			if ($password == $row['password']) {
-				$password = $row['password'];
-			} else {
-				$password = password_hash($password, PASSWORD_DEFAULT);
-			}
-	
-			$sql = "UPDATE voters SET fullname = '$fullname', username = '$username', email = '$email', password = '$password' WHERE id = '$id'";
-			
-			if ($conn->query($sql)) {
-				$_SESSION['success'] = 'Voter Berhasil Diubah';
-			} else {
-				$_SESSION['error'] = $conn->error;
-			}
-		}
-	} else {
-		$_SESSION['error'] = 'Fill up edit form first';
-	}
+if (isset($_POST['edit'])) {
+    $id = $_POST['id'];
+    $fullname = $_POST['fullname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-	header('location: voters.php');
+    $errors = array();
+
+    // Validasi panjang username (minimal 4 karakter)
+    if (strlen($username) < 4) {
+        $errors[] = 'Username harus memiliki minimal 4 karakter.';
+    }
+
+    // Validasi nama hanya mengandung huruf dan spasi
+    if (!preg_match("/^[a-zA-Z ]*$/", $fullname)) {
+        $errors[] = 'Nama hanya boleh mengandung huruf dan spasi.';
+    }
+
+    // Validasi username hanya mengandung huruf dan angka
+    if (!preg_match("/^[0-9]*$/", $username)) {
+        $errors[] = 'Username hanya boleh mengandung angka.';
+    }
+
+    // Validasi password hanya mengandung huruf dan angka
+    if (!preg_match("/^[a-zA-Z0-9]*$/", $password)) {
+        $errors[] = 'Password harus mengandung huruf dan angka.';
+    }
+
+    if (empty($errors)) {
+        // Check if the new username already exists for other voters
+        $checkQuery = $conn->prepare("SELECT * FROM voters WHERE username = ? AND id <> ?");
+        $checkQuery->bind_param("si", $username, $id);
+        $checkQuery->execute();
+        $checkResult = $checkQuery->get_result();
+
+        if ($checkResult->num_rows > 0) {
+            $errors[] = 'Username/NIK sudah ada yang punya. Mohon gunakan username/NIK pribadi.';
+        } else {
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            $updateQuery = $conn->prepare("UPDATE voters SET fullname = ?, username = ?, email = ?, password = ? WHERE id = ?");
+            $updateQuery->bind_param("sssii", $fullname, $username, $email, $hashed_password, $id);
+
+            if ($updateQuery->execute()) {
+                $_SESSION['success'] = 'Voter Berhasil Diubah';
+            } else {
+                $errors[] = 'Gagal mengubah voter: ' . $conn->error;
+            }
+        }
+    }
+
+    if (!empty($errors)) {
+        $_SESSION['error'] = implode('<br>', $errors);
+    }
+} else {
+    $_SESSION['error'] = 'Isi formulir edit terlebih dahulu.';
+}
+
+header('location: voters.php');
+
 ?>

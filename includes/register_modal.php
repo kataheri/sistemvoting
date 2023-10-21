@@ -13,14 +13,14 @@
                     <label for="fullname" class="col-sm-3 control-label">Nama Pemilih</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="fullname" name="fullname" pattern="[a-zA-Z ]+"required>
+                      <input type="text" class="form-control" id="fullname" name="fullname" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="username" class="col-sm-3 control-label">Username (4 Digit Akhir NIK)</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="username" name="username" pattern="[0-9]+" required>
+                      <input type="text" class="form-control" id="username" name="username" required>
                     </div>
                 </div>
                 <div class="form-group">

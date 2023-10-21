@@ -13,14 +13,14 @@
                     <label for="fullname" class="col-sm-3 control-label">Nama Pemilih</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="fullname" name="fullname" pattern="[a-zA-Z ]+"required>
+                      <input type="text" class="form-control" id="fullname" name="fullname" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="username" class="col-sm-3 control-label">NIK/username</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="username" name="username" pattern="[0-9]+" required>
+                      <input type="text" class="form-control" id="username" name="username" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -62,14 +62,14 @@
                 <div class="form-group">
                   <label for="edit_fullname" class="col-sm-3 control-label">Nama Pemilih</label>
                   <div class="col-sm-9">
-                  <input type="text" class="form-control" id="edit_fullname" name="fullname" pattern="[a-zA-Z ]+" required>
+                  <input type="text" class="form-control" id="edit_fullname" name="fullname" required>
                   </div>
                 </div>
                 <div class="form-group">
                     <label for="edit_username" class="col-sm-3 control-label">NIK/username</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_username" name="username" pattern="[0-9]+" required>
+                      <input type="text" class="form-control" id="edit_username" name="username" required>
                     </div>
                 </div>
                 <div class="form-group">
