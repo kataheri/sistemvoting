@@ -151,7 +151,6 @@ function getRow(id) {
       $('.fullname').html(response.fullname);
       // Mengganti karakter newline (\n) dengan tag <br> untuk menampilkan platform dengan spasi
       $('#desc').html(response.platform.replace(/\n/g, '<br>'));
-
       $('#photo_candidate').attr('src', urlFix + 'images/' + response.photo);
     }
   });

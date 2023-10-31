@@ -62,7 +62,8 @@ include 'includes/header.php';
 				    		<div class="text-center">
 					    		<h3>KAMU TELAH MELAKUKAN VOTE TERIMA KASIH</h3>
 								<h6>Vote yang sudah dikirim tidak dapat dirubah kembali</h6>
-					    		<a href="#view" data-toggle="modal" class="btn btn-flat btn-primary btn-lg">Lihat Vote</a>
+					    		<a href="#view" data-toggle="modal" class="btn btn-flat btn-success btn-lg">Lihat Vote</a>
+								<a href="logout.php" class="btn btn-flat btn-primary btn-lg"><i class="fa fa-sign-out"></i> KELUAR</a>
 					    	</div>
 				    		<?php
 				    	}
