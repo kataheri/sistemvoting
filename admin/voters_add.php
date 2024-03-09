@@ -20,6 +20,15 @@ if (isset($_POST['add'])) {
     // Validasi format email menggunakan ekspresi reguler
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'Format email tidak valid. Mohon gunakan alamat email yang benar.';
+    } else {
+        // Pengecekan domain email untuk membatasi hanya menerima dari Gmail atau Hotmail
+        $allowedDomains = ['gmail.com', 'hotmail.com', 'untirta.ac.id', 'outlook.com'];
+        $emailParts = explode('@', $email);
+        $domain = end($emailParts);
+    
+        if (!in_array($domain, $allowedDomains)) {
+            $errors[] = 'Hanya diperbolehkan alamat email dari gmail, hotmail, maupun outlook.';
+        }
     }
     // Validasi "fullname" hanya mengandung hanya huruf dan spasi
     if (!preg_match("/^[a-zA-Z,. ]*$/", $fullname)) {

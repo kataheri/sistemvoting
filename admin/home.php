@@ -65,8 +65,6 @@
             <a href="positions.php" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- Small boxes (Stat box) -->
-      <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
@@ -92,13 +90,13 @@
           <div class="small-box bg-green">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM candidates";
+                $sql = "SELECT * FROM president";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
           
-              <p>Total Kandidat</p>
+              <p>Total Kandidat A</p>
             </div>
             <div class="icon">
               <i class="fa fa-black-tie"></i>
@@ -106,19 +104,22 @@
             <a href="candidates.php" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+      </div>
+      <!-- Small boxes (Stat box) -->
+      <div class="row">      
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM president";
+                $sql = "SELECT * FROM candidates";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
           
-              <p>Total Kandidat Ketua</p>
+              <p>Total Kandidat B</p>
             </div>
             <div class="icon">
               <i class="fa fa-black-tie"></i>
@@ -168,7 +169,6 @@
         </div>
         <!-- ./col -->
       </div>
-
       </section>
       <!-- right col -->
     </div>

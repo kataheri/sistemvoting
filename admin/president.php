@@ -11,11 +11,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Daftar Kandidat Presiden
+       Daftar Kandidat A
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Kandidat Presiden</li>
+        <li class="active">Kandidat A</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -48,8 +48,8 @@
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Tambah Kandidat</a>
             </div>
-            <div class="box-body">
-              <table id="example1" class="table table-bordered">
+            <div class="box-body" style="overflow-x: auto">
+              <table id="example1" class="table table-bordered" style="width:auto">
                 <thead>
                   <th class="hidden"></th>
                   <th>Posisi</th>

@@ -27,7 +27,7 @@
                     <label for="email" class="col-sm-3 control-label">email</label>
 
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="email" name="email" required>
+                      <input type="text" class="form-control" id="email" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -76,7 +76,7 @@
                     <label for="edit_email" class="col-sm-3 control-label">email</label>
 
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="edit_email" name="email" required>
+                      <input type="text" class="form-control" id="edit_email" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">

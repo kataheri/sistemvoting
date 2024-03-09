@@ -48,8 +48,8 @@
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Tambah Kelompok</a>
             </div>
-            <div class="box-body">
-              <table id="example1" class="table table-bordered">
+            <div class="box-body" style="overflow-x: auto">
+              <table id="example1" class="table table-bordered" style="width:auto">
                 <thead>
                   <th class="hidden"></th>
                   <th>Deskripsi</th>
