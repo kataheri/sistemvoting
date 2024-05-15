@@ -54,10 +54,11 @@ if (isset($_POST['edit'])) {
         if ($checkResult->num_rows > 0) {
             $errors[] = 'Username/NIK sudah ada yang punya. Mohon gunakan username/NIK pribadi.';
         } else {
+            // Hash the password
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             $updateQuery = $conn->prepare("UPDATE voters SET fullname = ?, username = ?, email = ?, password = ? WHERE id = ?");
-            $updateQuery->bind_param("sssii", $fullname, $username, $email, $hashed_password, $id);
+            $updateQuery->bind_param("ssssi", $fullname, $username, $email, $hashed_password, $id);
 
             if ($updateQuery->execute()) {
                 $_SESSION['success'] = 'Voter Berhasil Diubah';

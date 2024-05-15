@@ -51,7 +51,7 @@
 					$csrow = $csquery->fetch_assoc();
 					$output['list'] .= "
 						<div class='row votelist'>
-							<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
+							<span class='col-sm-4'><b>".$row['description']." :</b></span> 
 							<span class='col-sm-8'>".$csrow['fullname']."</span>
 						</div>
 					";
@@ -63,7 +63,7 @@
 					$cmrow = $cmquery->fetch_assoc();
 					$output['list'] .= "
 						<div class='row votelist'>
-							<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
+							<span class='col-sm-4'><b>".$row['description']." :</b></span> 
 							<span class='col-sm-8'>".$cmrow['fullname']."</span>
 						</div>
 					";

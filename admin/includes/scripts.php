@@ -74,5 +74,3 @@ $(function(){
   }) 
 });
 </script>
-
-

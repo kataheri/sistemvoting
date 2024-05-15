@@ -3,9 +3,9 @@
     <div class="container">
       <div class="navbar-header">
         <a href="#" class="navbar-brand"><b>SISTEM</b>VOTING</a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
-        </button>
+        </button> -->
       </div>
       <!-- Navbar Right Menu -->
       <!-- <div class="navbar-custom-menu">
