@@ -23,7 +23,7 @@
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
-			$_SESSION['error'] = 'Username tidak terdaftar';
+			$_SESSION['error'] = 'NIK tidak terdaftar';
 			
 		}
 		else{

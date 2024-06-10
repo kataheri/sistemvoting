@@ -10,12 +10,12 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="positions_add.php">
                 <div class="form-group">
-                    <label for="description" class="col-sm-3 control-label">Descripsi</label>
+                  <label for="description" class="col-sm-3 control-label">Descripsi</label>
 
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="description" name="description" pattern="[a-zA-Z 0-9]+" required>
-                    </div>
-                </div>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="description" name="description" pattern="[a-zA-Z 0-9]+" required oninvalid="this.setCustomValidity('Mohon isi bagian ini dengan huruf maupun angka')" oninput="setCustomValidity('')">
+                  </div>
+              </div>
                 <div class="form-group">
                     <label for="max_vote" class="col-sm-3 control-label">Batas Vote</label>
 
@@ -49,7 +49,7 @@
                     <label for="edit_description" class="col-sm-3 control-label">Deskripsi</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_description" name="description" pattern="[a-zA-Z 0-9]+" required>
+                      <input type="text" class="form-control" id="edit_description" name="description" pattern="[a-zA-Z 0-9]+" required oninvalid="this.setCustomValidity('Mohon isi bagian ini dengan huruf maupun angka')" oninput="setCustomValidity('')">
                     </div>
                 </div>
                 <div class="form-group">
