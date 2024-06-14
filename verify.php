@@ -11,6 +11,11 @@ if (isset($_POST['verify'])) {
         $_SESSION['error'] = 'NIK tidak terdaftar';
     } else {
         $_SESSION['verified_user'] = $voter;
+        if (isset($_POST['edit'])){
+            $id = $_POST['id'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+        }
     }
 }
 

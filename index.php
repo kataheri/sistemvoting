@@ -40,7 +40,7 @@ if(isset($_SESSION['username'])){
                     <button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> Masuk</button>
                 </div>
                 <div class="col-xs-8 text-right">
-                    <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i>  Register</a>
+                    <a href="#verify" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i>  Verifikasi</a>
                 </div>
             </div>
         </form>
@@ -79,7 +79,7 @@ if(isset($_SESSION['username'])){
       ?>
 </div>
 
-<?php include 'includes/register_modal.php'?>
+<?php include 'includes/verify_modal.php'?>
 
 <?php include 'includes/scripts.php' ?>
 <!-- Add the following JavaScript code -->
