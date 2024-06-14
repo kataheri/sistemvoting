@@ -45,8 +45,8 @@
         }
       ?>
       <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
+      <div class="d-flex">
+        <div class="col-6 col-md-4">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
@@ -65,7 +65,7 @@
             <a href="positions.php" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-6 col-md-4">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
@@ -85,7 +85,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-6 col-md-4">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -103,12 +103,9 @@
             </div>
             <a href="candidates.php" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
           </div>
-        </div>
-      </div>
-      <!-- Small boxes (Stat box) -->
-      <div class="row">      
+        </div>    
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-6 col-md-4">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -118,7 +115,6 @@
 
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
-          
               <p>Total Kandidat B</p>
             </div>
             <div class="icon">
@@ -128,7 +124,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-6 col-md-4">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -148,7 +144,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-6 col-md-4">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
@@ -168,7 +164,7 @@
           </div>
         </div>
         <!-- ./col -->
-      </div>
+      </div> 
       </section>
       <!-- right col -->
     </div>
