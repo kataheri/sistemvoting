@@ -1,4 +1,5 @@
 <?php
+global $conn;
 session_start();
 include 'includes/conn.php';
 
@@ -48,4 +49,8 @@ function updateVoterData($conn, $username, $email, $password) {
 
     $stmt->close();
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 09415dd1ed4f0e78546f06717621bd8c96e3360b
