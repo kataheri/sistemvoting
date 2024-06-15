@@ -28,7 +28,7 @@
           			echo $_SESSION['voter'];
                   }
                    else{
-                        $_SESSION['error']= 'OTP salah';
+                        $_SESSION['error']= 'OTP yang anda masukan salah';
                   }
     		}
             // expired
@@ -57,6 +57,9 @@
     			<div class="col-xs-4">
           			<button type="submit" class="btn btn-primary btn-block btn-flat" name="submitOTP"> Submit</button>
         		</div>
+				<div class="col-xs-4 pull-right">
+					<a href="logout.php" class="btn btn-primary btn-block btn-flat"><i class="fa fa-sign-out"></i> KELUAR</a>
+                </div>
       		</div>
     	</form>
   	</div>
