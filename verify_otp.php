@@ -1,12 +1,12 @@
 <?php
 include 'includes/session.php';
 include 'includes/conn.php';
+date_default_timezone_set("Asia/Bangkok");  
 
 // if (isset($_POST['verify'])) {
     // $entered_otp = $_POST['otp'];
     $voter_id = $_SESSION['voter_id'];
 if (isset($_POST['submitOTP'])) {
-    // $logout = "index.php";
     $otp = $_POST['otp'];
     $username = $_SESSION['username'];
     $sql = "SELECT * FROM voters WHERE username = '$username'";
@@ -23,10 +23,10 @@ if (isset($_POST['submitOTP'])) {
             $sql = "INSERT INTO votes (voters_id, president_id, candidate_id, position_id)
                     SELECT voters_id, president_id, candidate_id, position_id FROM votes
                     WHERE voters_id = '$voter_id'
-                    VALUES ('" . $voter_id . "')";
+                    VALUES ('" . $voter['id'] . "', '$president_id', '$candidate_id', '$pos_id')";
             $conn->query($sql);
-            var_dump($sql);
-            exit();
+            // var_dump($sql);
+            // exit();
 
             // Clear temporary votes and session
             // $conn->query("DELETE FROM votes WHERE voters_id = '$voter_id'");
@@ -38,8 +38,15 @@ if (isset($_POST['submitOTP'])) {
             exit();
         } else {
             // OTP expired
-            $_SESSION['error'] = 'OTP has expired. Please vote again.';
-            header('location: home.php');
+            unset($_SESSION['error']);
+            echo "<script type='text/javascript'>
+            alert('Sesi telah berakhir');
+            </script>";
+            echo "<script type='text/javascript'>
+            window.location.replace('home.php');
+            </script>";
+            // $_SESSION['error'] = 'OTP has expired. Please vote again.';
+            // header('location: home.php');
             exit();
         }
     } else {
