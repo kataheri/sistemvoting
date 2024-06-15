@@ -1,4 +1,5 @@
 <?php
+global $conn;
 session_start();
 include 'includes/conn.php';
 
