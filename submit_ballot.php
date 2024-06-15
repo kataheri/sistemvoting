@@ -1,6 +1,14 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'libraries/phpmailer/PHPMailer.php';
+require 'libraries/phpmailer/Exception.php';
+require 'libraries/phpmailer/SMTP.php';
 include 'includes/session.php';
 include 'includes/slugify.php';
+include 'includes/conn.php';
+date_default_timezone_set("Asia/Bangkok");    
 
 if (isset($_POST['vote'])) {
     $selectedCandidates = $_POST;
@@ -49,7 +57,7 @@ if (isset($_POST['vote'])) {
                     $candidate_id = 0;
                 }
 
-                $sql_array[] = "INSERT INTO votes (voters_id, president_id, candidate_id, position_id) VALUES ('" . $voter['id'] . "', '$president_id', '$candidate_id', '$pos_id')";
+                $sql_array[] = "INSERT INTO votes_temp (voters_id, president_id, candidate_id, position_id) VALUES ('" . $voter['id'] . "', '$president_id', '$candidate_id', '$pos_id')";
             }
         }
     }
@@ -58,12 +66,69 @@ if (isset($_POST['vote'])) {
         foreach ($sql_array as $sql_row) {
             $conn->query($sql_row);
         }
-        unset($_SESSION['post']);
-        $_SESSION['success'] = 'Vote berhasil dikirim';
+
+        // Generate and send OTP
+        $voterEmail = $voter['email'];
+        $otp = sendOTP($voterEmail, $voter['username'], $conn);
+
+        // Store the generated OTP in session for verification
+        $_SESSION['otp'] = $otp;
+        $_SESSION['voter_id'] = $voter['id'];
+        $_SESSION['success'] = 'Vote submitted. Please check your email for OTP verification.';
+
+        header('location: verify_otp.php');
+        exit();
     }
 } else {
     $_SESSION['error'][] = 'Select candidates to vote first';
 }
 
 header('location: home.php');
+?>
+
+<?php
+function sendOTP($email, $voter, $conn){
+        //generate otp
+        $generate_otp = rand(100000,999999);
+        $hash_otp = password_hash($generate_otp, PASSWORD_DEFAULT);
+
+        // send email
+        // Create a new PHPMailer instance
+        $mail = new PHPMailer(true);
+
+        // Set up SMTP configuration
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';  // Specify your SMTP server address
+        $mail->Port = 465;  // Specify the SMTP server port
+        $mail->SMTPAuth = true;  // Enable SMTP authentication
+        $mail->SMTPSecure = 'ssl';
+
+        $mail->Username = 'felix.swift916@gmail.com'; // Your SMTP username
+        $mail->Password = 'refikrxllfmsimzc'; // Your SMTP password
+
+        // Set up email details
+        $mail->setFrom('admin@sistemvoting.com', 'Admin');  // Sender email address and name
+        $mail->addAddress($email, 'name');  // Recipient email address and name
+        $mail->Subject = 'OTP';  // Email subject
+        $mail->Body = 'This is your OTP : ' . $generate_otp;  // Email body content
+
+        // Send the email
+        if ($mail->send()) {
+            // echo 'Email sent successfully.';
+        } else {
+            echo 'Error sending email: ' . $mail->ErrorInfo;
+        }
+
+        //Time
+        $selectedTime = date("H:i:s");
+        $endTime = strtotime("+3 minutes", strtotime($selectedTime));
+        $expired_date =  date("Y-m-d H:i:s", $endTime);
+
+        //update to db
+        $string_query = "UPDATE voters SET otp = '$hash_otp',
+        expired_otp = '$expired_date'
+         WHERE username = '$voter'";
+         $exe = $conn->query($string_query);
+         return $generate_otp;
+}
 ?>
